@@ -1,5 +1,26 @@
 <?php
 
+switch(getenv('APP_ENV')) {
+
+    case 'production':
+        // Production resides in Heroku and does not have a .env file but
+        // instead uses environment variables
+        $dbHost     = getenv('DB_HOST');
+        $dbPort     = getenv('DB_PORT');
+        $dbDatabase = getenv('DB_DATABASE');
+        $dbUsername = getenv('DB_USERNAME');
+        $dbPassword = getenv('DB_PASSWORD');
+        break;
+    default:
+        $dbHost     = env('DB_HOST', 'localhost');
+        $dbPort     = env('DB_PORT', '3306');
+        $dbDatabase = env('DB_DATABASE', 'forge');
+        $dbUsername = env('DB_USERNAME', 'forge');
+        $dbPassword = env('DB_PASSWORD', '');
+        break;
+}
+
+
 return [
 
     /*
@@ -54,11 +75,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => $dbHost,
+            'port' => $dbPort,
+            'database' => $dbDatabase,
+            'username' => $dbUsername,
+            'password' => $dbPassword,
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
