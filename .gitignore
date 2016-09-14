@@ -1,5 +1,10 @@
-vendor/
-node_modules/
+# Laravel and Homestead defaults
+/node_modules
+/public/storage
+/vendor
+/.idea
+Homestead.json
+Homestead.yaml
 
 # Laravel 4 specific
 bootstrap/compiled.php
@@ -13,3 +18,4 @@ bootstrap/cache/
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
+
