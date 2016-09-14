@@ -11,6 +11,14 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('wall');
 });
+
+//Route::get('/','Auth\LoginController@login');
+
+Auth::routes();
+
+Route::get('/messages', 'MessagesController@index');
+Route::get('/home', 'HomeController@index');
