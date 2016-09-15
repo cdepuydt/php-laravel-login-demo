@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{URL::asset('css/login.css')}}">
 
     <!-- Scripts -->
     <script>
@@ -19,6 +20,9 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    <script type="text/javascript" src="{{URL::asset('js/jquery-3.1.0.min.js')}}"></script>
+    <script type="text/javascript" src="{{URL::asset('js/login.js')}}"></script>
+
 </head>
 <body>
     <nav class="navbar navbar-default navbar-static-top">
@@ -49,8 +53,40 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        <li class="login-links"><a href="#" id="login-link">Login</a></li>
+                        <li class="login-links"><a href="{{ url('/register') }}">Register</a></li>
+
+                        <li class="login-inputs">
+                            <input id="user_name" type="text" class="form-control" name="user_name"
+                                   value="{{ old('user_name') }}" placeholder="Username" required>
+                        </li>
+                        <li class="login-inputs">
+                            <input id="password" type="password" class="form-control" name="password"
+                                   placeholder="Password" required>
+                        </li>
+                        <li class="login-inputs">
+                            <input id="login-button" type="button" value="Login">
+                        </li>
+
+                        <li class="login-menu dropdown">
+                            <a href="#" id="login-menu-username" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ url('/logout') }}"
+                                        onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
