@@ -1,7 +1,6 @@
 <?php
 
 switch(getenv('APP_ENV')) {
-
     case 'production':
         // Production resides in Heroku and does not have a .env file but
         // instead uses environment variables
@@ -11,6 +10,7 @@ switch(getenv('APP_ENV')) {
         $dbUsername = getenv('DB_USERNAME');
         $dbPassword = getenv('DB_PASSWORD');
         break;
+
     default:
         $dbHost     = env('DB_HOST', 'localhost');
         $dbPort     = env('DB_PORT', '3306');
@@ -19,7 +19,6 @@ switch(getenv('APP_ENV')) {
         $dbPassword = env('DB_PASSWORD', '');
         break;
 }
-
 
 return [
 

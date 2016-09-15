@@ -36,4 +36,11 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+
+    // override to use the user_name column intead of an email
+    public function username()
+    {
+        return 'user_name';
+    }
+
 }
