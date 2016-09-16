@@ -67,6 +67,9 @@
                         <li class="login-inputs">
                             <input id="login-button" type="button" value="Login">
                         </li>
+                        <li class="login-inputs">
+                            <input id="login-cancel-button" type="button" value="Cancel">
+                        </li>
 
                         <li class="login-menu dropdown">
                             <a href="#" id="login-menu-username" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

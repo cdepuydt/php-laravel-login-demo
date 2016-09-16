@@ -1,6 +1,7 @@
 $(document).ready(function() {
-    $("#login-link").on('click', displayLogin);
+    $("#login-link").on('click', displayLoginInputs);
     $("#login-button").on('click', loginUser);
+    $("#login-cancel-button").on('click', displayLoginLinks);
 
     $("input#user_name").keydown(function(e) {
         if (e.keyCode === 13) {
@@ -15,9 +16,18 @@ $(document).ready(function() {
     });
 });
 
-function displayLogin()
+function displayLoginLinks()
+{
+    $(".login-inputs").css("display", "none");
+    $(".login-menu").css("display", "none");
+    $(".login-links").css("display", "inline");
+    $("input#user_name").focus();
+}
+
+function displayLoginInputs()
 {
     $(".login-links").css("display", "none");
+    $(".login-menu").css("display", "none");
     $(".login-inputs").css("display", "inline");
     $("input#user_name").focus();
 }
