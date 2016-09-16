@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{URL::asset('css/login.css')}}">
+    <link rel="stylesheet" href="{{asset('css/login.css')}}">
 
     <!-- Scripts -->
     <script>
@@ -20,8 +20,8 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-    <script type="text/javascript" src="{{URL::asset('js/jquery-3.1.0.min.js')}}"></script>
-    <script type="text/javascript" src="{{URL::asset('js/login.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/jquery-3.1.0.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/login.js')}}"></script>
 
 </head>
 <body>
