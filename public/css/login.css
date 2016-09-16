@@ -1,5 +1,13 @@
-li.login-inputs,
 li.login-menu {
     display: none;
 }
 
+li.login-inputs {
+    display: none;
+    padding: 5px;
+
+}
+
+li.login-inputs input[type=button] {
+    height: 36px;
+}

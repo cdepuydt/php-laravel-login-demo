@@ -1,12 +1,25 @@
 $(document).ready(function() {
     $("#login-link").on('click', displayLogin);
     $("#login-button").on('click', loginUser);
+
+    $("input#user_name").keydown(function(e) {
+        if (e.keyCode === 13) {
+            $("input#password").focus();
+        }
+    });
+
+    $("input#password").keydown(function(e) {
+        if (e.keyCode === 13) {
+            loginUser();
+        }
+    });
 });
 
 function displayLogin()
 {
     $(".login-links").css("display", "none");
     $(".login-inputs").css("display", "inline");
+    $("input#user_name").focus();
 }
 
 function displayLoginMenu()
