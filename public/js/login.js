@@ -4,16 +4,33 @@ $(document).ready(function() {
     $("#login-cancel-button").on('click', displayLoginLinks);
 
     $("input#user_name").keydown(function(e) {
-        if (e.keyCode === 13) {
-            $("input#password").focus();
+        switch(e.keyCode) {
+            case 13:
+                // Enter
+                $("input#password").focus();
+                break;
+            case 27:
+                // ESC
+                displayLoginLinks();
+                break;
+            default:
+                break;
         }
     });
 
     $("input#password").keydown(function(e) {
-        if (e.keyCode === 13) {
-            loginUser();
-        }
-    });
+        switch(e.keyCode) {
+            case 13:
+                // Enter
+                loginUser();
+                break;
+            case 27:
+                // ESC
+                displayLoginLinks();
+                break;
+            default:
+                break;
+        }    });
 });
 
 function displayLoginLinks()
